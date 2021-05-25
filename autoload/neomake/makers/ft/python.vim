@@ -113,7 +113,6 @@ endfunction
 
 function! neomake#makers#ft#python#flake8() abort
     let maker = {
-        \ 'args': ['--format=default'],
         \ 'errorformat':
             \ '%A%f:%l:%c: %t%n %m,' .
             \ '%A%f:%l: %t%n %m,' .
@@ -140,7 +139,6 @@ function! neomake#makers#ft#python#flake8() abort
     endfunction
 
     function! maker.supports_stdin(_jobinfo) abort
-        let self.args += ['--stdin-display-name', '%:p']
         return 1
     endfunction
     return maker
